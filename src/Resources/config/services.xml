@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="bitbag_sylius_braintree_plugin.form.type.braintree_gateway_configuration" class="BitBag\SyliusBraintreePlugin\Form\Type\BraintreeGatewayConfigurationType">
+            <tag name="sylius.gateway_configuration_type" type="braintree" label="bitbag_sylius_braintree_plugin.ui.braintree_gateway_label" />
+            <tag name="form.type" />
+        </service>
+
+        <service id="bitbag_sylius_braintree_plugin.gateway_factory.braintree" class="Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder">
+            <argument type="string">Payum\Braintree\BraintreeGatewayFactory</argument>
+            <tag name="payum.gateway_factory_builder" factory="braintree" />
+        </service>
+    </services>
+</container>
