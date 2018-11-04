@@ -1,0 +1,7 @@
+bitbag_sylius_braintree_plugin:
+    merchant_id:
+        not_blank: Merchant ID cannot be blank.
+    public_key:
+        not_blank: Public Key cannot be blank.
+    private_key:
+        not_blank: Private Key cannot be blank.

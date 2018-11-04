@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <defaults public="true" />
+
+        <service id="bitbag_sylius_braintree_plugin.behat.context.ui.admin.refund" class="Tests\BitBag\SyliusBraintreePlugin\Behat\Context\Ui\Admin\RefundContext">
+            <argument type="service" id="bitbag_sylius_braintree_plugin.behat.braintree_api_mocker" />
+            <argument type="service" id="sylius.behat.context.ui.admin.managing_orders" />
+            <tag name="fob.context_service" />
+        </service>
+
+        <service id="bitbag_sylius_braintree_plugin.behat.context.ui.admin.managing_payment_method_braintree" class="Tests\BitBag\SyliusBraintreePlugin\Behat\Context\Ui\Admin\ManagingPaymentMethodContext">
+            <argument type="service" id="bitbag_sylius_braintree_plugin.page.admin.payment_method.create" />
+            <tag name="fob.context_service" />
+        </service>
+
+        <service id="bitbag_sylius_braintree_plugin.behat.context.ui.shop.checkout" class="Tests\BitBag\SyliusBraintreePlugin\Behat\Context\Ui\Shop\CheckoutContext">
+            <argument type="service" id="sylius.behat.page.shop.checkout.complete" />
+            <argument type="service" id="sylius.behat.page.shop.order.show" />
+            <argument type="service" id="bitbag_sylius_braintree_plugin.behat.braintree_api_mocker" />
+            <argument type="service" id="bitbag_sylius_braintree_plugin.page.shop.payum.capture" />
+            <tag name="fob.context_service" />
+        </service>
+    </services>
+</container>

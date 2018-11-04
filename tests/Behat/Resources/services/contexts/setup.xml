@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <defaults public="true" />
+
+        <service id="bitbag_sylius_braintree_plugin.behat.context.setup.braintree" class="Tests\BitBag\SyliusBraintreePlugin\Behat\Context\Setup\BraintreeContext">
+            <argument type="service" id="sylius.behat.shared_storage" />
+            <argument type="service" id="__symfony__.sylius.repository.payment_method" />
+            <argument type="service" id="__symfony__.sylius.fixture.example_factory.payment_method" />
+            <argument type="service" id="__symfony__.sylius.factory.payment_method_translation" />
+            <argument type="service" id="__symfony__.sylius.manager.payment_method" />
+            <tag name="fob.context_service" />
+        </service>
+
+        <service id="bitbag_sylius_braintree_plugin.behat.context.setup.order" class="Tests\BitBag\SyliusBraintreePlugin\Behat\Context\Setup\OrderContext">
+            <argument type="service" id="__symfony__.doctrine.orm.default_entity_manager" />
+            <argument type="service" id="__symfony__.sm.factory" />
+            <argument type="service" id="__symfony__.payum" />
+            <tag name="fob.context_service" />
+        </service>
+    </services>
+</container>

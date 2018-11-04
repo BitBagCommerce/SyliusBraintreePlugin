@@ -1,0 +1,113 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block content %}
+
+    {% block braintree_payment_form %}
+        <form method="POST" action="{{ formAction }}" id="form" style="margin-top: 50px;">
+            <div id="dropin-container"></div>
+            <input type="hidden" name="payment_method_nonce" id="payment_method_nonce" value="" />
+            {#<input type="submit" value="Submit payment" id="submit_btn" />#}
+            <button type="submit" class="ui huge primary fluid icon labeled button" id="submit_btn" style="margin-top: 20px">
+                <i class="icon credit card alternative"></i>
+                {{ 'sylius.ui.place_order'|trans }}
+            </button>
+
+        </form>
+    {% endblock %}
+
+    {% block braintree_load_js %}
+        <script src="https://js.braintreegateway.com/js/braintree-2.30.0.min.js"></script>
+    {% endblock %}
+
+    {% block braintree_init_js %}
+        <script type="text/javascript">
+
+            function obtainPaymentMethodNonce(braintree, state, callback) {
+
+                braintree.setup(state.clientToken, 'dropin', {
+                    container: 'dropin-container',
+                    onPaymentMethodReceived: function (response) {
+
+                        if (state.obtainCardholderAuthentication && 'CreditCard' == response.type) {
+
+                            state.creditCard = response.nonce;
+
+                            obtainCardholderAuthentication(braintree, state, function(error, nonce) {
+
+                                if (error) {
+                                    callback(error);
+                                    return;
+                                }
+
+                                callback(null, nonce);
+                            });
+                        }
+                        else {
+                            callback(null, response.nonce);
+                        }
+                    }
+                });
+            }
+
+            function obtainCardholderAuthentication(braintree, state, callback) {
+
+                var client = new braintree.api.Client({
+                    clientToken: state.clientToken
+                });
+
+                client.verify3DS({
+                    amount: state.amount,
+                    creditCard: state.creditCard
+                }, function (error, response) {
+
+                    if (error) {
+                        callback(error);
+                        return;
+                    }
+
+                    callback(null, response.nonce);
+                });
+            }
+
+            (function() {
+
+                var submitting = false;
+
+                obtainPaymentMethodNonce(braintree, {
+                    clientToken: {{ clientToken|json_encode|raw }},
+                    amount: {{ amount|json_encode|raw }},
+                    obtainCardholderAuthentication: {{ obtainCardholderAuthentication|json_encode|raw }}
+                }, function(error, nonce) {
+
+                    if (error) {
+                        return;
+                    }
+
+                    if (submitting) {
+                        return;
+                    }
+
+                    var input = document.getElementById('payment_method_nonce');
+                    input.value = nonce;
+
+                    var form = document.getElementById('form');
+
+                    submitting = true;
+
+                    form.submit();
+
+                    var button = document.getElementById('submit_btn');
+
+                    if (button) {
+                        button.style.filter = "grayscale(100%)";
+                        button.style.WebkitFilter = "grayscale(100%)";
+                        button.style.opacity = "0.7";
+                        button.disabled = true;
+                    }
+                });
+            })();
+
+        </script>
+    {% endblock %}
+
+{% endblock %}

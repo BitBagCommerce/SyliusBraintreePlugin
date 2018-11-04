@@ -2,14 +2,23 @@
 
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
+        <defaults public="true" />
+
+        <service id="bitbag_sylius_braintree_plugin.api_client.braintree" class="BitBag\SyliusBraintreePlugin\ApiClient\BraintreeApiClient" public="true"/>
+
         <service id="bitbag_sylius_braintree_plugin.form.type.braintree_gateway_configuration" class="BitBag\SyliusBraintreePlugin\Form\Type\BraintreeGatewayConfigurationType">
             <tag name="sylius.gateway_configuration_type" type="braintree" label="bitbag_sylius_braintree_plugin.ui.braintree_gateway_label" />
             <tag name="form.type" />
         </service>
 
         <service id="bitbag_sylius_braintree_plugin.gateway_factory.braintree" class="Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder">
-            <argument type="string">Payum\Braintree\BraintreeGatewayFactory</argument>
+            <argument type="string">BitBag\SyliusBraintreePlugin\BraintreeGatewayFactory</argument>
             <tag name="payum.gateway_factory_builder" factory="braintree" />
+        </service>
+
+        <service id="bitbag_sylius_braintree_plugin.payment_processing.refund" class="BitBag\SyliusBraintreePlugin\PaymentProcessing\RefundPaymentProcessor">
+            <argument type="service" id="session" />
+            <argument type="service" id="bitbag_sylius_braintree_plugin.api_client.braintree" />
         </service>
     </services>
 </container>

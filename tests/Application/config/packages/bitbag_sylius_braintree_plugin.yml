@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@BitBagSyliusBraintreePlugin/Resources/config/config.yml" }

@@ -29,7 +29,7 @@ final class BraintreeGatewayConfigurationType extends AbstractType
                 'label' => 'bitbag_sylius_braintree_plugin.ui.merchant_id',
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'bitbag_sylius_braintree_plugin.api_key.merchant_id',
+                        'message' => 'bitbag_sylius_braintree_plugin.merchant_id.not_blank',
                         'groups' => 'sylius',
                     ]),
                 ],
@@ -58,7 +58,9 @@ final class BraintreeGatewayConfigurationType extends AbstractType
             ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
                 $data = $event->getData();
 
-                $data['payum.http_client'] = '@sylius.payum.http_client';
+                $data['payum.http_client'] = '@bitbag_sylius_braintree_plugin.api_client.braintree';
+
+                $event->setData($data);
             })
         ;
     }

@@ -1,0 +1,57 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block content %}
+
+    {% block braintree_payment_form %}
+
+        <div id="error-container" style="display:none">
+            <div id="error-message" style="margin:1em; padding:1em; background-color:#ee0000; color:white"></div>
+        </div>
+
+        <form id="form" method="POST" action="{{ formAction }}">
+            <input type="hidden" name="nonce" id="threeDSecure_payment_method_nonce" />
+        </form>
+
+    {% endblock %}
+
+    {% block braintree_load_js %}
+        <script src="https://js.braintreegateway.com/js/braintree-2.30.0.min.js"></script>
+    {% endblock %}
+
+    {% block braintree_init_js %}
+
+        <script type="text/javascript">
+
+            var displayError = function(message) {
+                var errorContainer = document.getElementById("error-container");
+                var errorMessage = document.getElementById("error-message");
+                errorMessage.innerHTML = 'Error: ' + message;
+                errorContainer.style.display = 'block';
+            };
+
+            var client = new braintree.api.Client({
+                clientToken: {{ clientToken|json_encode|raw }}
+            });
+
+            client.verify3DS({
+                amount: {{ amount|json_encode|raw }},
+                creditCard: {{ creditCard|json_encode|raw }}
+            }, function (error, response) {
+
+                if (error) {
+                    displayError(error.message);
+                    return;
+                }
+
+                var form = document.getElementById("form");
+
+                var nonceInput = document.getElementById("threeDSecure_payment_method_nonce");
+                nonceInput.value = response.nonce;
+
+                form.submit();
+            });
+
+        </script>
+    {% endblock %}
+
+{% endblock %}

@@ -1,1 +1,4 @@
-
+imports:
+    - suites/ui/refunding_braintree_payment.yml
+    - suites/ui/managing_payment_method_braintree.yml
+    - suites/ui/paying_with_braintree_for_order.yml

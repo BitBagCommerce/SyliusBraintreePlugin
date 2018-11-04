@@ -1,0 +1,7 @@
+bitbag_sylius_braintree_plugin:
+    ui:
+        merchant_id: Merchant ID
+        braintree_gateway_label: Braintree
+        public_key: Public Key
+        private_key: Private Key
+        sandbox: Sandbox

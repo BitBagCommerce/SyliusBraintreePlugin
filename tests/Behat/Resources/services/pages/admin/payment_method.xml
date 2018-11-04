@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="bitbag_sylius_braintree_plugin.page.admin.payment_method.create" class="Tests\BitBag\SyliusBraintreePlugin\Behat\Page\Admin\PaymentMethod\CreatePage" parent="sylius.behat.page.admin.crud.create" public="true">
+            <argument type="string">sylius_admin_payment_method_create</argument>
+        </service>
+    </services>
+</container>
