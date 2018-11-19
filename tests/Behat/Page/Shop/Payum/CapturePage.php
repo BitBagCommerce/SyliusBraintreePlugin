@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Tests\BitBag\SyliusBraintreePlugin\Behat\Page\Shop\Payum;
 
-use Sylius\Behat\Page\Page;
+use FriendsOfBehat\PageObjectExtension\Page\Page;
 
 final class CapturePage extends Page implements CapturePageInterface
 {
