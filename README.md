@@ -1,86 +1,86 @@
-<p align="center">
-    <a href="https://sylius.com" target="_blank">
-        <img src="https://demo.sylius.com/assets/shop/img/logo.png" />
+<h1 align="center">
+    <br />
+    <a href="https://packagist.org/packages/bitbag/braintree-plugin" title="License" target="_blank">
+        <img src="https://img.shields.io/packagist/l/bitbag/braintree-plugin.svg" />
     </a>
-</p>
+    <a href="https://packagist.org/packages/bitbag/braintree-plugin" title="Version" target="_blank">
+        <img src="https://img.shields.io/packagist/v/bitbag/braintree-plugin.svg" />
+    </a>
+    <a href="http://travis-ci.org/BitBagCommerce/SyliusBraintreePlugin" title="Build status" target="_blank">
+            <img src="https://img.shields.io/travis/BitBagCommerce/SyliusBraintreePlugin/master.svg" />
+        </a>
+    <a href="https://scrutinizer-ci.com/g/BitBagCommerce/SyliusBraintreePlugin/" title="Scrutinizer" target="_blank">
+        <img src="https://img.shields.io/scrutinizer/g/BitBagCommerce/SyliusBraintreePlugin.svg" />
+    </a>
+    <a href="https://packagist.org/packages/bitbag/braintree-plugin" title="Total Downloads" target="_blank">
+        <img src="https://poser.pugx.org/bitbag/braintree-plugin/downloads" />
+    </a>
+</h1>
 
-<h1 align="center">Plugin Skeleton</h1>
+## Overview
 
-<p align="center">Skeleton for starting Sylius plugins.</p>
+This plugin allows you to integrate Braintree payment with Sylius platform app. It includes all Sylius and Braintree payment features, including refunding orders.
+
+## Support
+
+We work on amazing eCommerce projects on top of Sylius and Pimcore. Need some help or additional resources for a project?
+Write us an email on mikolaj.krol@bitbag.pl or visit [our website](https://bitbag.shop/)! :rocket:
+
+## Demo
+
+We created a demo app with some useful use-cases of the plugin! Visit [demo.bitbag.shop](https://demo.bitbag.shop) to take a look at it. 
+The admin can be accessed under [demo.bitbag.shop/admin](https://demo.bitbag.shop/admin) link and `sylius: sylius` credentials.
 
 ## Installation
-
-1. Run `composer create-project sylius/plugin-skeleton ProjectName`.
-
-2. From the plugin skeleton root directory, run the following commands:
-
-    ```bash
-    $ (cd tests/Application && yarn install)
-    $ (cd tests/Application && yarn build)
-    $ (cd tests/Application && bin/console assets:install public -e test)
+```bash
+$ composer require bitbag/braintree-plugin 
+```
     
-    $ (cd tests/Application && bin/console doctrine:database:create -e test)
-    $ (cd tests/Application && bin/console doctrine:schema:create -e test)
-    ```
+Add plugin dependencies to your AppKernel.php file:
 
-## Usage
+```php
+$bundles = [
+   new \BitBag\SyliusBraintreePlugin\BitBagSyliusBraintreePlugin(),
+];
+```
 
-### Running plugin tests
+Import required config in your `app/config/config.yml` file:
 
-  - PHPUnit
+```yaml
+# app/config/config.yml
 
-    ```bash
-    $ vendor/bin/phpunit
-    ```
+imports:
+    ...
+    
+    - { resource: "@BitBagSyliusBraintreePlugin/Resources/config/config.yml" }
+```
 
-  - PHPSpec
+## Customization
 
-    ```bash
-    $ vendor/bin/phpspec run
-    ```
+### Available services you can [decorate](https://symfony.com/doc/current/service_container/service_decoration.html) and forms you can [extend](http://symfony.com/doc/current/form/create_form_type_extension.html)
 
-  - Behat (non-JS scenarios)
-
-    ```bash
-    $ vendor/bin/behat --tags="~@javascript"
-    ```
-
-  - Behat (JS scenarios)
+Run the below command to see what Symfony services are shared with this plugin:
  
-    1. Download [Chromedriver](https://sites.google.com/a/chromium.org/chromedriver/)
-    
-    2. Download [Selenium Standalone Server](https://www.seleniumhq.org/download/).
-    
-    2. Run Selenium server with previously downloaded Chromedriver:
-    
-        ```bash
-        $ java -Dwebdriver.chrome.driver=chromedriver -jar selenium-server-standalone.jar
-        ```
-        
-    3. Run test application's webserver on `localhost:8080`:
-    
-        ```bash
-        $ (cd tests/Application && bin/console server:run localhost:8080 -d public -e test)
-        ```
-    
-    4. Run Behat:
-    
-        ```bash
-        $ vendor/bin/behat --tags="@javascript"
-        ```
+```bash
+$ bin/console debug:container bitbag_sylius_braintree_plugin
+```
 
-### Opening Sylius with your plugin
+## Testing
 
-- Using `test` environment:
+```bash
+$ composer install
+$ cd tests/Application
+$ yarn install
+$ yarn run gulp
+$ bin/console assets:install web -e test
+$ bin/console doctrine:database:create -e test
+$ bin/console doctrine:schema:create -e test
+$ bin/console server:run 127.0.0.1:8080 -e test
+$ open http://localhost:8080
+$ bin/behat
+$ bin/phpspec run
+```
 
-    ```bash
-    $ (cd tests/Application && bin/console sylius:fixtures:load -e test)
-    $ (cd tests/Application && bin/console server:run -d public -e test)
-    ```
-    
-- Using `dev` environment:
+## Contribution
 
-    ```bash
-    $ (cd tests/Application && bin/console sylius:fixtures:load -e dev)
-    $ (cd tests/Application && bin/console server:run -d public -e dev)
-    ```
+Learn more about our contribution workflow on http://docs.sylius.org/en/latest/contributing/.
