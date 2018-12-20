@@ -1,8 +1,8 @@
 {
-    "name": "sylius/plugin-skeleton",
+    "name": "bitbag/braintree-plugin",
     "type": "sylius-plugin",
     "keywords": ["sylius", "sylius-plugin"],
-    "description": "Acme example plugin for Sylius.",
+    "description": "Braintree payment plugin for Sylius applications.",
     "license": "MIT",
     "require": {
         "php": "^7.2",
