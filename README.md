@@ -2,6 +2,7 @@
     <a href="http://bitbag.shop" target="_blank">
         <img src="doc/logo.png" width="35%" />
     </a>
+    <br />
     <a href="https://packagist.org/packages/bitbag/braintree-plugin" title="License" target="_blank">
         <img src="https://img.shields.io/packagist/l/bitbag/braintree-plugin.svg" />
     </a>
