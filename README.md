@@ -1,6 +1,6 @@
 <h1 align="center">
     <a href="http://bitbag.shop" target="_blank">
-        <img src="doc/logo.jpeg" width="35%" />
+        <img src="doc/logo.png" width="35%" />
     </a>
     <a href="https://packagist.org/packages/bitbag/braintree-plugin" title="License" target="_blank">
         <img src="https://img.shields.io/packagist/l/bitbag/braintree-plugin.svg" />
