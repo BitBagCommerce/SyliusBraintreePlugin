@@ -48,7 +48,7 @@ $ composer require bitbag/braintree-plugin
 Add plugin dependencies to your AppKernel.php file:
 
 ```php
-$bundles = [
+return [
    new \BitBag\SyliusBraintreePlugin\BitBagSyliusBraintreePlugin(),
 ];
 ```
