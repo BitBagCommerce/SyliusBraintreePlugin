@@ -40,18 +40,18 @@ We work on stable, supported and up-to-date versions of packages. We recommend y
 
 | Package       | Version        |
 |:-------------:|:--------------:|
-| PHP           |  ^7.2  |
-| Sylius           |  ^1.4  |
+| PHP           |  ^7.4  |
+| Sylius           |  ^1.8  |
 ---
 ```bash
 $ composer require bitbag/braintree-plugin 
 ```
     
-Add plugin dependencies to your AppKernel.php file:
+Add plugin dependencies to your config/bundles.php file:
 
 ```php
 return [
-   new \BitBag\SyliusBraintreePlugin\BitBagSyliusBraintreePlugin(),
+   BitBag\SyliusBraintreePlugin\BitBagSyliusBraintreePlugin::class => ['all' => true]
 ];
 ```
 
@@ -88,7 +88,6 @@ $ bin/console server:run 127.0.0.1:8080 -e test
 $ open http://localhost:8080
 $ vendor/bin/behat
 $ vendor/bin/phpspec run
-$ vendor/bin/phpunit
 ```
 
 # About us
