@@ -20,7 +20,7 @@ final class ObtainCardholderAuthenticationAction implements ActionInterface, Gat
     use GatewayAwareTrait;
 
     /** @var string */
-    private $templateName;
+    private string $templateName;
 
     public function __construct(string $templateName)
     {
