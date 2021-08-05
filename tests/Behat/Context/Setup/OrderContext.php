@@ -14,7 +14,7 @@ namespace Tests\BitBag\SyliusBraintreePlugin\Behat\Context\Setup;
 
 use Behat\Behat\Context\Context;
 use BitBag\SyliusBraintreePlugin\BraintreeGatewayFactory;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Payum\Core\Registry\RegistryInterface;
 use SM\Factory\FactoryInterface as StateMachineFactoryInterface;
 use Sylius\Component\Core\Model\OrderInterface;
@@ -23,7 +23,7 @@ use Sylius\Component\Payment\PaymentTransitions;
 
 final class OrderContext implements Context
 {
-    /** @var ObjectManager */
+    /** @var EntityManagerInterface */
     private $objectManager;
 
     /** @var StateMachineFactoryInterface */
@@ -33,7 +33,7 @@ final class OrderContext implements Context
     private $payum;
 
     public function __construct(
-        ObjectManager $objectManager,
+        EntityManagerInterface $objectManager,
         StateMachineFactoryInterface $stateMachineFactory,
         RegistryInterface $payum
     ) {

@@ -1,2 +1,3 @@
 imports:
     - { resource: "state_machine.yml" }
+    - { resource: "services.xml" }

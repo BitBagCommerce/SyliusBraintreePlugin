@@ -22,7 +22,7 @@ final class ObtainPaymentMethodNonceAction implements ActionInterface, GatewayAw
     /** @var string */
     private $templateName;
 
-    protected $cardholderAuthenticationRequired;
+    protected bool $cardholderAuthenticationRequired;
 
     public function __construct(string $templateName)
     {
