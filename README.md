@@ -11,20 +11,20 @@ Like what we do? Want to join us? Check out our job listings on our [career page
 
 ## Table of Content
 ---
-* [Overwiev](#overwiev)
+* [Overview](#overview)
+* [Support](#we-are-here-to-help)
 * [Installation](#installation)
-  * [Requirements](#requirements)
   * [Customization](#customization)
   * [Testing](#testing)
 * [About us](#about-us)
   * [Community](#community)
-* [Demo Sylius shop](#demo-sylius-shop)
+* [Demo](#demo-sylius-shop)
 * [Additional resources for developers](#additional-resources-for-developers)
 * [License](#license)
 * [Contact](#contact)
 
 
-# Overwiev
+# Overview
 ---
 This plugin allows you to integrate Braintree payment with Sylius platform app. It includes all Sylius and Braintree payment features, including refunding orders.
 
