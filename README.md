@@ -19,7 +19,6 @@ Like what we do? Want to join us? Check out our job listings on our [career page
 * [About us](#about-us)
   * [Community](#community)
 * [Demo](#demo-sylius-shop)
-* [Additional resources for developers](#additional-resources-for-developers)
 * [License](#license)
 * [Contact](#contact)
 
