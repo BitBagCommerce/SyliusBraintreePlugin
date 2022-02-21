@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3 || ^8.0",
-        "sylius/sylius": "~1.8.0 || ~1.9.0 || ~1.10.0",
+        "sylius/sylius": "~1.8.0 || ~1.9.0 || ~1.10.0 || ~1.11.0",
         "braintree/braintree_php": "^6.4"
     },
     "require-dev": {
@@ -39,7 +39,8 @@
         "symfony/intl": "^4.4 || ^5.2",
         "symfony/web-profiler-bundle": "^4.4 || ^5.2",
         "symfony/web-server-bundle": "^3.4|^4.1",
-        "vimeo/psalm": "4.7.1"
+        "vimeo/psalm": "4.7.1",
+        "polishsymfonycommunity/symfony-mocker-container": "^1.0"
     },
     "config": {
         "sort-packages": true
