@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3 || ^8.0",
-        "sylius/sylius": "~1.8.0 || ~1.9.0 || ~1.10.0",
+        "sylius/sylius": "~1.8.0 || ~1.9.0 || ~1.10.0 || ~1.11.0",
         "braintree/braintree_php": "^6.4"
     },
     "require-dev": {
@@ -39,12 +39,26 @@
         "symfony/intl": "^4.4 || ^5.2",
         "symfony/web-profiler-bundle": "^4.4 || ^5.2",
         "symfony/web-server-bundle": "^3.4|^4.1",
-        "vimeo/psalm": "4.7.1"
+        "vimeo/psalm": "4.7.1",
+        "polishsymfonycommunity/symfony-mocker-container": "^1.0"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "symfony/thanks": true,
+            "composer/package-versions-deprecated": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true
+        }
     },
-    "prefer-stable": true,
+    "conflict": {
+        "doctrine/dbal": "^3.0",
+        "symfony/symfony": "4.1.8",
+        "symfony/browser-kit": "4.1.8",
+        "symfony/dom-crawler": "4.1.8",
+        "symfony/routing": "4.1.8",
+        "symfony/doctrine-bridge": "4.4.16"
+    },
     "autoload": {
         "psr-4": {
             "BitBag\\SyliusBraintreePlugin\\": "src/",
