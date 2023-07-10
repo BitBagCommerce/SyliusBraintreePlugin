@@ -7,6 +7,7 @@
     "require": {
         "php": "^7.3 || ^8.0",
         "sylius/sylius": "~1.8.0 || ~1.9.0 || ~1.10.0 || ~1.11.0",
+        "php-http/message-factory": "^1.1",
         "braintree/braintree_php": "^6.4"
     },
     "require-dev": {
