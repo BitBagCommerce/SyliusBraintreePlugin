@@ -3,7 +3,6 @@ default:
         ui_refunding_braintree_payment:
             contexts:
                 - sylius.behat.context.hook.doctrine_orm
-                - sylius.behat.context.hook.email_spool
 
                 - sylius.behat.context.setup.channel
                 - sylius.behat.context.setup.currency
@@ -55,4 +54,4 @@ default:
 
                 - bitbag_sylius_braintree_plugin.behat.context.ui.admin.refund
             filters:
-                tags: "@refunding_braintree_payment && @ui"
+                tags: "@refunding_braintree_payment&&@ui"
