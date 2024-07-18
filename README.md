@@ -33,7 +33,18 @@ This **open-source plugin was developed to help the Sylius community**. If you h
 [![](https://bitbag.io/wp-content/uploads/2020/10/button-contact.png)](https://bitbag.io/contact-us/?utm_source=github&utm_medium=referral&utm_campaign=plugins_braintree)
 
 # Installation
----
+----
+
+### Requirements
+
+We work on stable, supported and up-to-date versions of packages. We recommend you to do the same.
+
+| Package | Version            |
+| --- |--------------------|
+| PHP | ^8.0 or ^8.1       |
+| sylius/sylius | ^1.12.0 or ^1.13.0 |
+
+----
 
 ```bash
 $ composer require bitbag/braintree-plugin 
@@ -72,7 +83,7 @@ $ bin/console debug:container bitbag_sylius_braintree_plugin
 $ composer install
 $ cd tests/Application
 $ yarn install
-$ yarn build
+$ yarn encore dev
 $ bin/console assets:install public -e test
 $ bin/console doctrine:database:create -e test
 $ bin/console doctrine:schema:create -e test
