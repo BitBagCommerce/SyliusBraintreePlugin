@@ -16,9 +16,9 @@ use Payum\Core\Exception\RequestNotSupportedException;
 
 final class GenerateClientTokenAction extends BaseApiAwareAction
 {
+    /** @param GenerateClientToken $request */
     public function execute($request): void
     {
-        /** @var GenerateClientToken $request */
         RequestNotSupportedException::assertSupports($this, $request);
 
         $requestParams = [];

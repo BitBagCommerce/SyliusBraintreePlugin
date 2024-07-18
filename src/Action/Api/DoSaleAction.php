@@ -17,9 +17,9 @@ use Payum\Core\Exception\RequestNotSupportedException;
 
 final class DoSaleAction extends BaseApiAwareAction
 {
+    /** @param DoSale $request */
     public function execute($request): void
     {
-        /** @var DoSale $request */
         RequestNotSupportedException::assertSupports($this, $request);
 
         $requestParams = $this->getSaleRequestParams($request);

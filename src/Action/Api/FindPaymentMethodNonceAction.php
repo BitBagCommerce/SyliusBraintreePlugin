@@ -18,9 +18,9 @@ use Payum\Core\Exception\RequestNotSupportedException;
 
 final class FindPaymentMethodNonceAction extends BaseApiAwareAction
 {
+    /** @param GenerateClientToken $request */
     public function execute($request): void
     {
-        /** @var GenerateClientToken $request */
         RequestNotSupportedException::assertSupports($this, $request);
 
         try {
