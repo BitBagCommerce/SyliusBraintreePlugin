@@ -5,8 +5,8 @@
     "description": "Braintree payment plugin for Sylius applications.",
     "license": "MIT",
     "require": {
-        "php": "^8.0",
-        "sylius/sylius": "~1.12.0",
+        "php": "^8.0 || ^8.1",
+        "sylius/sylius": "~1.12.0 || ~1.13.0",
         "php-http/message-factory": "^1.1",
         "braintree/braintree_php": "^6.4",
         "symfony/webpack-encore-bundle": "^1.17"
@@ -51,6 +51,7 @@
         }
     },
     "conflict": {
+        "behat/mink-selenium2-driver": ">=1.7.0"
     },
     "autoload": {
         "psr-4": {
