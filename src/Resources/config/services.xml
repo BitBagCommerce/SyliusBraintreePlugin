@@ -17,7 +17,6 @@
         </service>
 
         <service id="bitbag_sylius_braintree_plugin.payment_processing.refund" class="BitBag\SyliusBraintreePlugin\PaymentProcessing\RefundPaymentProcessor">
-            <argument type="service" id="session" />
             <argument type="service" id="bitbag_sylius_braintree_plugin.api_client.braintree" />
         </service>
     </services>
