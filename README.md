@@ -13,6 +13,7 @@ Like what we do? Want to join us? Check out our job listings on our [career page
 ---
 * [Overview](#overview)
 * [Support](#we-are-here-to-help)
+* [Functionalities](#functionalities)
 * [Installation](#installation)
   * [Customization](#customization)
   * [Testing](#testing)
@@ -31,6 +32,11 @@ This plugin allows you to integrate Braintree payment with Sylius platform app. 
 This **open-source plugin was developed to help the Sylius community**. If you have any additional questions, would like help with installing or configuring the plugin, or need any assistance with your Sylius project - let us know!
 
 [![](https://bitbag.io/wp-content/uploads/2020/10/button-contact.png)](https://bitbag.io/contact-us/?utm_source=github&utm_medium=referral&utm_campaign=plugins_braintree)
+
+# Functionalities
+
+All main functionalities of the plugin are described [here.](https://github.com/BitBagCommerce/SyliusBraintreePlugin/blob/master/doc/functionalities.md)
+
 
 # Installation
 ---
