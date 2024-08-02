@@ -9,10 +9,6 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusBraintreePlugin\Request;
-
-use Payum\Core\Request\Generic;
-
-final class Purchase extends Generic
-{
-}
+return [
+    Sylius\Abstraction\StateMachine\SyliusStateMachineAbstractionBundle::class => ['all' => true],
+];

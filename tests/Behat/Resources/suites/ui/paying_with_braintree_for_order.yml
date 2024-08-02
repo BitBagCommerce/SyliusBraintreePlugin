@@ -43,4 +43,4 @@ default:
 
                 - bitbag_sylius_braintree_plugin.behat.context.ui.shop.checkout
             filters:
-                tags: "@paying_with_braintree_for_order && @ui"
+                tags: "@paying_with_braintree_for_order&&@ui"
